@@ -1,5 +1,5 @@
 n,m = map(int,input().split())
-arr=[[] for i in range(2)]
+arr=[[] for i in range(n)]
 
 for i in range(n):
     temp = input().split()
