@@ -1,7 +1,6 @@
 import sys
 h,m,s = map(int,sys.stdin.readline().split())
 s1 = int(sys.stdin.readline())
-
 for i in range(1,s1+1):
     s+=1
     if s == 60:
