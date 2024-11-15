@@ -1,2 +1,2 @@
-# LeetCode
-하루 LeetCode 한 문제 챌린지
+# Algorithm Practice
+하루 한 문제 챌린지
