@@ -1,4 +1,5 @@
 import heapq
+
 def solution(n, works):
     if sum(works) <= n: return 0
     
