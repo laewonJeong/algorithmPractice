@@ -1,4 +1,3 @@
-#코드를 입력하세요.
 def solution(m, n, puddles):
     dp = [[1 for _ in range(m)] for _ in range(n)]
     
