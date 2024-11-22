@@ -1,4 +1,4 @@
-case = []
+case = [] 
 cases = []
 
 def recursion(start, end, available_based_len_bid, check):
