@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 def solution(genres, plays):
     answer = []
     total_play = defaultdict(int)
