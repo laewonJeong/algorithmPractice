@@ -15,5 +15,4 @@ def recursion(zero, one, arr):
 
 def solution(arr):
     zero, one = 0, 0
-
     return recursion(zero, one, arr)
