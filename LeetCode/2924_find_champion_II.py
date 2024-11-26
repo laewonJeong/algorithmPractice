@@ -15,6 +15,7 @@ class Solution:
                     for vv in graph[v]:
                         if vv not in graph[i]:
                             graph[i].append(vv)
+                            
                 if len(graph[i]) == n-1:
                     return i
                 if before_len == len(graph[i]):
