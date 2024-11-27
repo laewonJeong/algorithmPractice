@@ -5,6 +5,7 @@ def dijkstra(graph, n, start):
 
     while pq:
         current = heapq.heappop(pq)
+        
         if current[0] > distances[current[1]]:
             continue
         for to, distance in graph[current[1]]:
