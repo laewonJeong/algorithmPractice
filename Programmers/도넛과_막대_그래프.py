@@ -24,6 +24,7 @@ def solution(edges):
             eight += 1
         else:
             x = graph_out[add_vertex][i]
+            
             while 1:
                 x = graph_out[x][0]
                 if(len(graph_out[x]) == 2):
