@@ -1,6 +1,5 @@
 class Solution:
-    def checkIfExist(self, arr: List[int]) -> bool:
-        
+    def checkIfExist(self, arr: List[int]) -> bool:        
 	double_arr = defaultdict(list)
 
         for i, num in enumerate(arr):
