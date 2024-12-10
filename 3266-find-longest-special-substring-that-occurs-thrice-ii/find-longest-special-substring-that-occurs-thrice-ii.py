@@ -19,10 +19,7 @@ class Solution:
         
         for key in substring_dic:
             if len(substring_dic[key]) >= 3:
-                if len(substring_dic[key]) == substring_dic[key].count(1):
-                    answer = max(answer, 1)
-                else:
-                    answer = max(answer,sorted(substring_dic[key])[-3])
+                answer = max(answer,sorted(substring_dic[key])[-3])
 
         
         return answer
