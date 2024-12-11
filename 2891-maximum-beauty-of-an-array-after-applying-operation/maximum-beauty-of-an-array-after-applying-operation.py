@@ -11,7 +11,6 @@ class Solution:
         answer = 0
 
         for i in range(n):
-            start, end = range_list[i]
             left, right = i, n - 1 
             while left <= right:
                 mid = (left + right) // 2
@@ -19,8 +18,7 @@ class Solution:
                     left = mid + 1
                 else:
                     right = mid - 1
-            
-            print(right-i+1)
+
             answer = max(answer, right - i + 1)
         
         return answer
