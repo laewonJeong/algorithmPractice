@@ -7,20 +7,21 @@ class Solution:
         if current == correct:
             return 0
 
+        answer = 0
         current = change_to_minute(current)
         correct = change_to_minute(correct)
 
-
-        dp = [float('inf') for _ in range(correct - current + 1)]
-        minutes = [1, 5, 15, 60]
-
-        for i in range(1, correct-current+1):
-            if i in minutes:
-                dp[i] = 1
+        while current != correct:
+            if current + 60 <= correct:
+                current += 60
+            elif current + 15 <= correct:
+                current += 15
+            elif current + 5 <= correct:
+                current += 5
             else:
-                for minute in minutes:
-                    if i-minute > 0:
-                        dp[i] = min(dp[i], dp[i-minute] + dp[minute])
+                current += 1
+            
+            answer += 1
 
-        return dp[-1]
+        return answer
         
