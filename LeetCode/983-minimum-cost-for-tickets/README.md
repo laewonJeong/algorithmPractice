@@ -1,4 +1,4 @@
-<h2> 8097 157
+<h2>
 983. Minimum Cost For Tickets</h2><hr><div><p>You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an integer array <code>days</code>. Each day is an integer from <code>1</code> to <code>365</code>.</p>
 
 <p>Train tickets are sold in <strong>three different ways</strong>:</p>
