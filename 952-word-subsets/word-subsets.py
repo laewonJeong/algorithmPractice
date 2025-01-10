@@ -1,7 +1,6 @@
 class Solution:
     def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
         answer = []
-        n = len(words1)
         count_words2 = Counter(words2[0])
 
         for i in range(1, len(words2)):
@@ -17,5 +16,4 @@ class Solution:
             if check:
                 answer.append(word1)
                            
-
         return answer
