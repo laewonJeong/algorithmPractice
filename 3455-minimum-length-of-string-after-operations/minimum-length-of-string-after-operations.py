@@ -4,8 +4,10 @@ class Solution:
         answer = len(s)
 
         for alpha in count_s:
-            while count_s[alpha] > 2:
-                count_s[alpha] -= 2
-                answer -=2
-        
+            if count_s[alpha] > 2:
+                if count_s[alpha] % 2 == 1:
+                    answer -= (count_s[alpha]) - 1
+                else:
+                    answer -= (count_s[alpha]) - 2
+
         return answer
