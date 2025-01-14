@@ -8,11 +8,9 @@ class Solution:
         for i in range(n):
             ss = split_sentence[i]
             dollor = ss[0]
-            money = "".join(ss[1:])
+            money = ss[1:]
             if dollor == "$" and money.isdigit():
                 int_money = int(money)
                 split_sentence[i] = f'${(int_money - int_money * discount):.2f}'
-            
-            answer += split_sentence[i] + ' '
         
-        return answer[:-1]
+        return ' '.join(split_sentence)
