@@ -1,14 +1,13 @@
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
-        check_a = Counter()
-        check_b = Counter()
+        max_a = max(A)
+        max_b = max(B)
+        check = [0 for _ in range(max(max_a, max_b)+1)]
 
         answer = []
-
         for num_a, num_b in zip(A, B):
-            check_a[num_a] += 1
-            check_b[num_b] += 1
-
-            answer.append(list((check_a + check_b).values()).count(2))
-
+            check[num_a] += 1
+            check[num_b] += 1
+            answer.append(check.count(2))
+            
         return answer
