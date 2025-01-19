@@ -25,8 +25,7 @@ class Solution:
                     visited[(nx, ny)] = True
                     if heightMap[nx][ny] < height:
                         answer += height - heightMap[nx][ny]
-                        heapq.heappush(q, (height, nx, ny))
-                    else:
-                        heapq.heappush(q, (heightMap[nx][ny], nx, ny))
+                        heightMap[nx][ny] = height
+                    heapq.heappush(q, (heightMap[nx][ny], nx, ny))
 
         return answer
