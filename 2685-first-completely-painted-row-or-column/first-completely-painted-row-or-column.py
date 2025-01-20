@@ -6,14 +6,13 @@ class Solution:
         row = [0 for _ in range(n)]
         col = [0 for _ in range(m)]
 
-
         xy = [0 for _ in range(n*m+1)]
 
         for i in range(n):
             for j in range(m):
                 xy[mat[i][j]] = (i, j)
 
-        for i in range(len(arr)):
+        for i in range(n*m+1):
             x, y = xy[arr[i]]
             row[x] += 1
             col[y] += 1
