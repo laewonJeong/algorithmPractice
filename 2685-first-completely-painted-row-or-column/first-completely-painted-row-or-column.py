@@ -7,7 +7,7 @@ class Solution:
         col = [0 for _ in range(m)]
 
 
-        xy = defaultdict(tuple)
+        xy = [0 for _ in range((n*m)+1)]
 
         for i in range(n):
             for j in range(m):
