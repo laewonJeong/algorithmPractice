@@ -9,7 +9,7 @@ class Solution:
             prefix[0][i] = prefix[0][i-1] + grid[0][i]
             prefix[1][i] = prefix[1][i-1] + grid[1][i]
         
-        answer = 9876543210
+        answer = float('inf')
         for i in range(n):
             can_blue1 = prefix[0][-1] - prefix[0][i]
             if i != 0:
@@ -17,7 +17,6 @@ class Solution:
             else:
                 can_blue2 = 0
 
-            blue_points = max(can_blue1, can_blue2)
-            answer = min(answer, blue_points)
+            answer = min(answer,  max(can_blue1, can_blue2))
             
         return answer
