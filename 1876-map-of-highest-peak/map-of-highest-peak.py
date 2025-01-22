@@ -5,7 +5,6 @@ class Solution:
         answer = [[-1 for _ in range(m)] for _ in range(n)]
 
         q = deque([])
-        visited = defaultdict(bool)
 
         for i in range(n):
             for j in range(m):
