@@ -21,7 +21,7 @@ class Solution:
                 nx = x + move[0]
                 ny = y + move[1]
 
-                if 0<= nx < n and 0 <= ny < m and answer[nx][ny] <= answer[x][y] and not visited[nx][ny]:
+                if 0<= nx < n and 0 <= ny < m and not visited[nx][ny]:
                     visited[nx][ny] = True
                     answer[nx][ny] = answer[x][y] + 1
                     q.append((nx, ny))
