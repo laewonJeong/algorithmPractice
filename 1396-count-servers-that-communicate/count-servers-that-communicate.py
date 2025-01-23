@@ -1,12 +1,8 @@
-def get_answer(row_or_col, n, check):
-    answer = 0
+def get_answer(row_or_col, n, s):
     for i in range(n):
         if len(row_or_col[i]) >= 2:
             for loc in row_or_col[i]:
-                if not check[loc]:
-                    answer += 1
-                    check[loc] = True
-    return answer
+                s.add(loc)
 
 class Solution:
     def countServers(self, grid: List[List[int]]) -> int:
@@ -23,9 +19,10 @@ class Solution:
                 if grid[i][j] == 1:
                     row[i].append((i,j))
                     col[j].append((i,j))
-
-        answer += get_answer(row, n, check)
-        answer += get_answer(col, m, check)
         
-        return answer
+        s = set()
+        get_answer(row, n, s)
+        get_answer(col, m, s)
+        
+        return len(s)
         
