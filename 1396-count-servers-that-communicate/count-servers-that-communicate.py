@@ -8,7 +8,6 @@ class Solution:
     def countServers(self, grid: List[List[int]]) -> int:
         n = len(grid)
         m = len(grid[0])
-        answer = 0
         check = defaultdict(bool)
 
         row = [[] for _ in range(n)]
