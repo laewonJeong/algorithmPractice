@@ -1,6 +1,7 @@
 def find(parent, x):
-    if parent[x] != x:
-        parent[x] = find(parent, parent[x])
+    if parent[x] == x:
+        return x
+    parent[x] = find(parent, parent[x])
     return parent[x]
 
 def union(parent, a, b):
@@ -12,7 +13,6 @@ def union(parent, a, b):
     else:
         parent[root_a] = root_b
         return True
-
 
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
