@@ -1,18 +1,9 @@
 class Solution:
     def getStrongest(self, arr: List[int], k: int) -> List[int]:
-        sorted_arr = sorted(arr)
+        arr.sort()
         n = len(arr)
-        median = sorted_arr[(n-1)//2]
+        median = arr[(n-1)//2]
 
-        new_arr = []
-        for i in range(n):
-            new_arr.append((abs(arr[i] - median), arr[i]))
-        
-        new_arr.sort(reverse = True)
-
-        answer = []
-
-        for i in range(k):
-            answer.append(new_arr[i][1])
-        
-        return answer
+        arr.sort(key = lambda x:(abs(x - median), x))
+  
+        return arr[n-k:]
