@@ -15,6 +15,6 @@ class Solution:
                 is_len = 1
                 ds_len = 1
             
-            answer = max(answer, max(is_len, ds_len))
+            answer = max(answer, is_len, ds_len)
 
         return answer
