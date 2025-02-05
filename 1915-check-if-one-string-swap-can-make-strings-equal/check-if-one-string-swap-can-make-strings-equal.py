@@ -6,14 +6,12 @@ class Solution:
             return False
         
         n = len(s1)
-        n = len(s1)
-        check_alpha = Counter()
+        check_diff = 0
         for i in range(n):
             if s1[i] != s2[i]:
-                check_alpha[s1[i]] += 1
-                check_alpha[s2[i]] += 1
+                check_diff += 1
 
-        if len(check_alpha) == 2 and sum(check_alpha.values()) == 4:
+        if check_diff == 2:
             return True
         else:
             return False
