@@ -12,6 +12,7 @@ class Solution:
                 check_color[colors[ball]] -= 1
                 if check_color[colors[ball]] == 0:
                     cnt -= 1
+                    del check_color[colors[ball]]
 
             check_color[color] += 1
             colors[ball] = color
