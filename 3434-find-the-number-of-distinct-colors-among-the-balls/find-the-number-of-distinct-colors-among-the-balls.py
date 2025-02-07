@@ -1,7 +1,7 @@
 class Solution:
     def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
         balls = {}
-        check_color = defaultdict(int)
+        check_color = Counter()
         answer = []
 
         cnt = 0
