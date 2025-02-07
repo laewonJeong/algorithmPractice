@@ -1,24 +1,21 @@
 class Solution:
     def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
-        colors = defaultdict(int)
-        check_color = Counter()
+        balls = {}
+        check_color = defaultdict(int)
         answer = []
 
         cnt = 0
         for query in queries:
             ball, color = query
 
-            if colors[ball] != 0:
-                check_color[colors[ball]] -= 1
-                if check_color[colors[ball]] == 0:
-                    cnt -= 1
-                    del check_color[colors[ball]]
+            if ball in balls:
+                check_color[balls[ball]] -= 1
+                if check_color[balls[ball]] == 0:
+                    del check_color[balls[ball]]
 
             check_color[color] += 1
-            colors[ball] = color
-            if check_color[color] == 1:
-                cnt += 1
-            
-            answer.append(cnt)
+            balls[ball] = color
+
+            answer.append(len(check_color))
 
         return answer
