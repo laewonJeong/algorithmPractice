@@ -5,9 +5,6 @@ class Solution:
 
         common_alpha_count = count_s & count_t
 
-        if common_alpha_count == count_s:
-            return 0
-
         answer = 0
         for alpha in count_s:
             if alpha in common_alpha_count:
