@@ -14,8 +14,6 @@ class Solution:
 
         for num in nums:
             sum_digit = get_sum_digit(num)
-            if len(count[sum_digit]) == 2 and num < -count[sum_digit][0] and num < -count[sum_digit][1]:
-                continue
             heapq.heappush(count[sum_digit], -num)
         
         for k, v in count.items():
