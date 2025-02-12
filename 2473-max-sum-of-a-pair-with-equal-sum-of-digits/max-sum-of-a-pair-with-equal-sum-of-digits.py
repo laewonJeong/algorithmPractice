@@ -3,10 +3,18 @@ class Solution:
         count = defaultdict(list)
         answer = -1
 
+        def get_sum_digit(num):
+            sum_digit = 0
+
+            while num != 0:
+                sum_digit += num % 10
+                num //= 10
+            
+            return sum_digit
+
         for num in nums:
-            sum_digit = sum(list(map(int, str(num))))
+            sum_digit = get_sum_digit(num)
             heapq.heappush(count[sum_digit], -num)
-        
         
         for k, v in count.items():
             if len(count[k]) > 1:
