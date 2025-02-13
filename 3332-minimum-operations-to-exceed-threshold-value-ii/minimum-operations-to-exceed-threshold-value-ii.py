@@ -4,12 +4,11 @@ class Solution:
         answer = 0
 
         while True:
-            min_num = heapq.heappop(nums)
-            if min_num < k:
-                max_num = heapq.heappop(nums)
-                heapq.heappush(nums, min_num * 2 + max_num)
-                answer += 1
-            else:
+            x = heapq.heappop(nums)
+            if x >= k:
                 break
-        
+            y = heapq.heappop(nums)
+            heapq.heappush(nums, x * 2 + y)
+            answer += 1
+            
         return answer
