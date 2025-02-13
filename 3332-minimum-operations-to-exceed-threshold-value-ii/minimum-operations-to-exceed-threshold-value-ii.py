@@ -7,8 +7,7 @@ class Solution:
             x = heapq.heappop(nums)
             if x >= k:
                 break
-            y = heapq.heappop(nums)
-            heapq.heappush(nums, x * 2 + y)
+            heapq.heapreplace(nums, x * 2 + nums[0])
             answer += 1
             
         return answer
