@@ -2,6 +2,7 @@ class Solution:
     def punishmentNumber(self, n: int) -> int:
         result = 0
         
+        @lru_cache(None)
         def partition(i, now, target, string):
             if i == len(string) and now == target:
                 return True
