@@ -1,6 +1,3 @@
-from collections import defaultdict
-from typing import List
-
 class Solution:
     def constructDistancedSequence(self, n: int) -> List[int]:
         answer = [0] * ((n - 1) * 2 + 1)
