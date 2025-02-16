@@ -10,7 +10,8 @@ class Solution:
             nonlocal result
             if result:
                 return
-            if idx == len(answer):
+
+            if idx == (n - 1) * 2 + 1:
                 result = answer[:]
                 return
             
@@ -29,7 +30,7 @@ class Solution:
                     visited[i] = False
                     answer[idx] = 0
                 else:
-                    if idx + i >= len(answer) or answer[idx + i] != 0:
+                    if idx + i >= (n - 1) * 2 + 1 or answer[idx + i] != 0:
                         continue
 
                     answer[idx] = i
