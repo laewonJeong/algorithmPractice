@@ -6,11 +6,19 @@ n = int(input())
 m = int(input())
 s = input().strip()
 
-ioi = 'IO' * n + 'I'
-
+i = 0
 answer = 0
-for i in range(m):
-    if s[i:].startswith(ioi):
-        answer += 1
+count = 0
 
+while i <= m-2:
+    if s[i:i+3] == 'IOI':
+        count += 1
+        i += 2
+        if count == n:
+            answer += 1
+            count -= 1
+    else:
+        count = 0
+        i+=1
+        
 print(answer)
