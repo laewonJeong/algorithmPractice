@@ -1,27 +1,27 @@
 class Solution:
     def numTilePossibilities(self, tiles: str) -> int:
+        answer = 0
         sequence = set()
         n = len(tiles)
         visited = [False] * n
 
-        def backtracking(now, now_len, tiles, n):
-            nonlocal sequence
-
+        def backtracking(now, tiles, n, visited):
+            nonlocal answer
             if now:
                 sequence.add(''.join(now))
-            if now_len == n:
-                return
+                answer += 1
             
             for i in range(n):
                 if not visited[i]:
                     visited[i] = True
                     now.append(tiles[i])
-                    
-                    backtracking(now, now_len, tiles, n)
+
+                    if ''.join(now) not in sequence:
+                        backtracking(now, tiles, n, visited)
 
                     now.pop()
                     visited[i] = False
         
-        backtracking([], 0, tiles, n)
+        backtracking([], tiles, n, visited)
 
-        return len(sequence)
+        return answer
