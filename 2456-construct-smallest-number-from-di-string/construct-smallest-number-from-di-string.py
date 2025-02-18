@@ -6,7 +6,7 @@ class Solution:
             nonlocal answer
             if answer or now_len == n+1 or idx == n:
                 if now_len == n+1:
-                    answer = ''.join(list(map(str, now)))
+                    answer = ''.join(map(str, now))
                 return
 
             p = pattern[idx]
