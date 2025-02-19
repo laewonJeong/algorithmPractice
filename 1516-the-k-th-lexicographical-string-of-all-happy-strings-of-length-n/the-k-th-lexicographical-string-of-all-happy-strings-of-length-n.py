@@ -1,23 +1,20 @@
 class Solution:
     def getHappyString(self, n: int, k: int) -> str:
         cnt = 0
-        answer = ''
-        def backtracking(n, k, now, s):
-            nonlocal cnt
-            nonlocal answer
 
-            if answer != '':
-                return
+        def backtracking(now, s):
+            nonlocal cnt
 
             if now == n:
                 cnt += 1
-                if cnt == k:
-                    answer = s
-                return
+                return s if cnt == k else ""
 
             for i in ['a', 'b', 'c']:
                 if not s or s[-1] != i:
-                    backtracking(n, k, now+1, s + i)
+                    answer = backtracking(now+1, s + i)
+                    if answer:
+                        return answer
+            
+            return answer
         
-        backtracking(n,k,0,'')
-        return answer
+        return backtracking(0,'')
