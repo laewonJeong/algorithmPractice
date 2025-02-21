@@ -3,30 +3,18 @@ import java.util.*;
 class Solution {
     public String findDifferentBinaryString(String[] nums) {
         int n = nums.length;
+        Set<Integer> numSet = new HashSet<>();
 
-        int[] arr = new int[n];
-
-        for(int i=0; i<n; i++) {
-            arr[i] = Integer.parseInt(nums[i], 2);
+        for (String num : nums) {
+            numSet.add(Integer.parseInt(num, 2));
         }
-        Arrays.sort(arr);
 
-        int maxN = (int) Math.pow(2, n);
-
-        int i = 0;
-        int j = 0;
-        while(j <= maxN && i < n) {
-            System.out.println(arr[i] + " " + j);
-
-            if(arr[i] == j) {
-                i++;
-                j++;
-            } 
-            else {
-
-                return String.format("%0"+n+"d", Integer.parseInt(Integer.toBinaryString(j)));
+        // 0부터 2^n - 1까지 없는 숫자 찾기
+        for (int j = 0; j < (1 << n); j++) {
+            if (!numSet.contains(j)) {
+                return String.format("%" + n + "s", Integer.toBinaryString(j)).replace(' ', '0');
             }
         }
-        return String.format("%0"+n+"d", Integer.parseInt(Integer.toBinaryString(j)));
+        return "";
     }
 }
