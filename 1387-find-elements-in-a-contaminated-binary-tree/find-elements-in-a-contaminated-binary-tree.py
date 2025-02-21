@@ -7,7 +7,7 @@
 class FindElements:
 
     def __init__(self, root: Optional[TreeNode]):
-        self.vertex = []
+        self.vertex = set()
         self.bfs(root, 0)
 
     def find(self, target: int) -> bool:
@@ -18,7 +18,7 @@ class FindElements:
 
         while q:
             root, x = q.popleft()
-            self.vertex.append(x)
+            self.vertex.add(x)
             if root.left:
                 q.append((root.left, 2 * x + 1))
             if root.right:
