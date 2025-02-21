@@ -8,7 +8,8 @@ class FindElements:
 
     def __init__(self, root: Optional[TreeNode]):
         self.vertex = set()
-        self.dfs(root, 0)
+        #self.dfs(root, 0)
+        self.bfs(root, 0)
 
     def find(self, target: int) -> bool:
         return target in self.vertex
