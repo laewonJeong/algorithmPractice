@@ -1,20 +1,31 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 class Solution {
     public String findDifferentBinaryString(String[] nums) {
         int n = nums.length;
-        Set<Integer> numSet = new HashSet<>();
-
+        Set<String> numSet = new HashSet<>();
+        
         for (String num : nums) {
-            numSet.add(Integer.parseInt(num, 2));
+            numSet.add(num);
         }
 
-        // 0부터 2^n - 1까지 없는 숫자 찾기
-        for (int j = 0; j < (1 << n); j++) {
-            if (!numSet.contains(j)) {
-                return String.format("%" + n + "s", Integer.toBinaryString(j)).replace(' ', '0');
-            }
+        return backtracking(new StringBuilder(), 0, n, numSet);
+    }
+
+    private String backtracking(StringBuilder now, int lenNow, int n, Set<String> numSet) {
+        if (lenNow == n) {
+            String binaryString = now.toString();
+            return numSet.contains(binaryString) ? null : binaryString;
         }
-        return "";
+
+        for (char bit : new char[]{'0', '1'}) {
+            now.append(bit);
+            String result = backtracking(now, lenNow + 1, n, numSet);
+            if (result != null) return result;
+            now.deleteCharAt(now.length() - 1); // 백트래킹 수행
+        }
+
+        return null;
     }
 }
