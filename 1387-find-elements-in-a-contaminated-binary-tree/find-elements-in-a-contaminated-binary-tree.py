@@ -8,20 +8,22 @@ class FindElements:
 
     def __init__(self, root: Optional[TreeNode]):
         self.vertex = []
-        self.dfs(root, 0)
+        self.bfs(root, 0)
 
     def find(self, target: int) -> bool:
         return target in self.vertex
 
-    def dfs(self, root, x):
-        if root == None:
-            return
-        
-        self.vertex.append(x)
-        self.dfs(root.left, 2 * x + 1)
-        self.dfs(root.right, 2 * x + 2)
-        
+    def bfs(self, root, x):
+        q = deque([(root, x)])
 
+        while q:
+            root, x = q.popleft()
+            self.vertex.append(x)
+            if root.left:
+                q.append((root.left, 2 * x + 1))
+            if root.right:
+                q.append((root.right, 2 * x + 2))
+        
 
 # Your FindElements object will be instantiated and called as such:
 # obj = FindElements(root)
