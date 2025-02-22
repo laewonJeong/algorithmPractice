@@ -10,19 +10,19 @@ class Solution:
         n = len(traversal)
 
         i = 0
-        dash = ''
+        dash = 0
         digit = 0
         while i != n:
             if traversal[i].isdigit():
                 if dash:
-                    nodes.append(len(dash))
-                    dash =''
+                    nodes.append(dash)
+                    dash = 0
                 digit= digit*10 + int(traversal[i])
             else:
                 if digit:
                     nodes.append(digit)
                     digit=0
-                dash += traversal[i]
+                dash += 1
             i+=1
 
         nodes.append(digit) # nodes = [1, '-', 401, '--', 349, '---', 90, '--', 88]
