@@ -7,30 +7,21 @@
 
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
-        find_root = set()
-        all_nodes = set()
-        graph = defaultdict(lambda: [None, None])
+        nodes = {}
 
         for parent, child, is_left in descriptions:
-            find_root.add(child)
-            all_nodes.add(parent)
-            all_nodes.add(child)
-            graph[parent][is_left ^ 1] = child
+            nodes[child] = TreeNode(child)
 
-        root_val = list(all_nodes - find_root)[0]
-        root = TreeNode(root_val)
-        q = deque([root])
+        for parent, child, is_left in descriptions:
+            if parent not in nodes:
+                root = TreeNode(parent)
+                nodes[parent] = root
+                break
         
-        while q:
-            node = q.popleft()
-            children = graph[node.val]
-
-            if children[0] != None:
-                node.left = TreeNode(children[0])
-                q.append(node.left)
-
-            if children[1] != None:
-                node.right = TreeNode(children[1])
-                q.append(node.right)
+        for parent, child, is_left in descriptions:
+            if is_left:
+                nodes[parent].left = nodes[child]
+            else:
+                nodes[parent].right = nodes[child]
 
         return root
