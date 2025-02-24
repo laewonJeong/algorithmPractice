@@ -43,7 +43,7 @@ class Solution:
             elif (node in bob_path and depth < bob_path[node]) or node not in bob_path:
                 income += amount[node]
 
-            if node != 0 and len(graph[node]) == 1:
+            if len(graph[node]) == 1 and visited[graph[node][0]]:
                 answer = max(answer, income)
                 return
 
