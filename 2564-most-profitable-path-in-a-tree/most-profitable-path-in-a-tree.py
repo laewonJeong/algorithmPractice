@@ -35,7 +35,7 @@ class Solution:
         find_bob_path(visited, [bob], bob)
 
         answer = float('-inf')
-        def dfs_alice(node, depth, visited, income):
+        def find_max_income(node, depth, visited, income):
             nonlocal answer
 
             if node in bob_path and depth == bob_path[node]:
@@ -50,11 +50,11 @@ class Solution:
             for next_node in graph[node]:
                 if not visited[next_node]:
                     visited[next_node] = True
-                    dfs_alice(next_node, depth+1, visited, income)
+                    find_max_income(next_node, depth+1, visited, income)
                     visited[next_node] = False
 
         visited = [False] * (n+1)
         visited[0] = True
-        dfs_alice(0, 0, visited, 0)
+        find_max_income(0, 0, visited, 0)
 
         return answer
