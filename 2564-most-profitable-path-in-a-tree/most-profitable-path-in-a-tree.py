@@ -17,7 +17,7 @@ class Solution:
                 for i, node in enumerate(path):
                     bob_path[node] = i
                 return
-            if 0 in bob_path:
+            if bob_path:
                 return
 
             for next_vertex in graph[now]:
