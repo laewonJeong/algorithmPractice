@@ -15,6 +15,4 @@ class Solution:
                 answer += even_count
                 odd_count += 1
 
-            answer %= mod
-            
         return answer % mod
