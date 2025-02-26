@@ -8,6 +8,6 @@ class Solution:
             local_max = max(nums[i], nums[i] + local_max)
             local_min = min(nums[i], nums[i] + local_min)
 
-            answer = max(answer, abs(local_max), abs(local_min))
+            answer = max(answer, local_max, abs(local_min))
 
         return answer
