@@ -8,7 +8,9 @@ class Solution:
             for j in range(n-1 -(n-1 - i+1), -1,-1):
                 if arr[i] - arr[j] >= arr[j]:
                     break           
-                if arr[i] - arr[j] in arr_set: 
+                elif arr[i] - arr[j] not in arr_set:
+                    continue
+                else:
                     start_fibo[(arr[i] - arr[j], arr[j])] = (arr[j], arr[i])
         
         result = 0
