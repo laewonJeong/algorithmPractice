@@ -1,7 +1,7 @@
 class Solution:
     def lenLongestFibSubseq(self, arr: List[int]) -> int:
         arr_set = set(arr)
-        start_fibo = defaultdict(int)
+        start_fibo = {}
         n = len(arr)
 
         key = []
@@ -17,12 +17,10 @@ class Solution:
         for k in key:
             answer = 1
             now = start_fibo[k]
-            while True:
-                if start_fibo[now] == 0:
-                    break
-                else:
-                    now = start_fibo[now]
-                    answer += 1
+            
+            while now in start_fibo:
+                now = start_fibo[now]
+                answer += 1
             
             result = max(result, answer)
         
