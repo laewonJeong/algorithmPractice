@@ -1,17 +1,15 @@
 class Solution:
     def lenLongestFibSubseq(self, arr: List[int]) -> int:
-        arr_dic = defaultdict(bool)
+        arr_set = set(arr)
         start_fibo = defaultdict(int)
         n = len(arr)
-        for num in arr:
-            arr_dic[num] = True
 
         key = []
         for i in range(n-1, 1, -1):
             for j in range(n-1 -(n-1 - i+1), -1,-1):
                 if arr[i] - arr[j] >= arr[j]:
                     break           
-                if arr_dic[arr[i] - arr[j]]: 
+                if arr[i] - arr[j] in arr_set: 
                     start_fibo[(arr[i] - arr[j], arr[j])] = (arr[j], arr[i])
                     key.append((arr[i] - arr[j], arr[j]))
         
