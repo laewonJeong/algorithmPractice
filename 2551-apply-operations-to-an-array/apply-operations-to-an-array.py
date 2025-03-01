@@ -2,7 +2,6 @@ class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
         n = len(nums)
         answer = []
-        zero = []
 
         for i in range(n):
             if i+1 < n and nums[i] == nums[i+1]:
@@ -11,8 +10,8 @@ class Solution:
             
             if nums[i] != 0:
                 answer.append(nums[i])
-            else:
-                zero.append(0)
-     
+        
+        for _ in range(n-len(answer)):
+            answer.append(0)
 
-        return answer+zero
+        return answer
