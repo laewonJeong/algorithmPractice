@@ -1,17 +1,17 @@
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
         n = len(nums)
+        answer = []
 
-        for i in range(n-1):
-            if nums[i] == nums[i+1]:
+        for i in range(n):
+            if i+1 < n and nums[i] == nums[i+1]:
                 nums[i] *= 2
                 nums[i+1] = 0
+            
+            if nums[i] != 0:
+                answer.append(nums[i])
         
-        for i in range(n):
-            if nums[i] == 0:
-                for j in range(i+1, n):
-                    if nums[j] != 0:
-                        nums[i], nums[j] = nums[j], nums[i]
-                        break
+        for _ in range(n-len(answer)):
+            answer.append(0)
 
-        return nums
+        return answer
