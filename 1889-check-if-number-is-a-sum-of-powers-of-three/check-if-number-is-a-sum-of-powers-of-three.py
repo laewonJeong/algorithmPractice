@@ -1,8 +1,21 @@
 class Solution:
     def checkPowersOfThree(self, n: int) -> bool:
-        while n!=0:
-            if n % 3 == 2:
-                return False
-            n //= 3
-        
-        return True
+        check_sum = []
+
+        for i in range(16):
+            three_power = 3 ** i
+
+            if three_power < n:
+                check_sum.append(three_power)
+                
+                for j in range(len(check_sum)-1):
+                    sum_power_of_three = check_sum[j] + three_power
+
+                    if sum_power_of_three == n:
+                        return True
+
+                    elif check_sum[-1] < n:
+                        check_sum.append(sum_power_of_three)
+            
+            else:
+                return three_power == n
