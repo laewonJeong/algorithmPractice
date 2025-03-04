@@ -14,7 +14,7 @@ class Solution:
                     if sum_power_of_three == n:
                         return True
 
-                    elif check_sum[-1] < n:
+                    elif sum_power_of_three < n:
                         check_sum.append(sum_power_of_three)
             
             else:
