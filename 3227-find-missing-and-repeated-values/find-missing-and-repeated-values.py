@@ -1,22 +1,19 @@
 class Solution:
     def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
-        # Get grid dimensions
         n = len(grid)
-        total = n * n
 
-        # Calculate actual sums from grid
-        sum_val = sum(num for row in grid for num in row)
-        sqr_sum = sum(num * num for row in grid for num in row)
+        count = [0] * (n**2+1)
 
-        # Calculate differences from expected sums
-        # Expected sum: n(n+1)/2, Expected square sum: n(n+1)(2n+1)/6
-        sum_diff = sum_val - total * (total + 1) // 2
-        sqr_diff = sqr_sum - total * (total + 1) * (2 * total + 1) // 6
-
-        # Using math: If x is repeated and y is missing
-        # sum_diff = x - y
-        # sqr_diff = x² - y²
-        repeat = (sqr_diff // sum_diff + sum_diff) // 2
-        missing = (sqr_diff // sum_diff - sum_diff) // 2
-
-        return [repeat, missing]
+        for i in range(n):
+            for j in range(n):
+                count[grid[i][j]] += 1
+        
+        repeat_num = -1
+        missing_num = -1
+        for i in range(1, n**2+1):
+            if count[i] == 0:
+                missing_num = i
+            elif count[i] == 2:
+                repeat_num = i
+        
+        return [repeat_num, missing_num]
