@@ -1,20 +1,18 @@
 class Solution:
     def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
         n = len(grid)
+        sum_n = ((n*n) * (n*n + 1))//2
 
-        count = [0] * (n**2+1)
+        check = set()
 
+        repeat_num = -1
         for i in range(n):
             for j in range(n):
-                count[grid[i][j]] += 1
-        
-        repeat_num = -1
-        missing_num = -1
-        for i in range(1, n**2+1):
-            if count[i] == 0:
-                missing_num = i
-            elif count[i] == 2:
-                repeat_num = i
-        
-        return [repeat_num, missing_num]
+                if grid[i][j] in check:
+                    repeat_num = grid[i][j]
+                else:
+                    check.add(grid[i][j])
+                    sum_n -= grid[i][j]
+
+        return [repeat_num, sum_n]
             
