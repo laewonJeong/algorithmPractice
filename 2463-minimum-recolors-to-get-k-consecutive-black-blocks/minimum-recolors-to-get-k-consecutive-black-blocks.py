@@ -1,11 +1,20 @@
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
         n = len(blocks)
-
+        l = 0
         answer = n+1
-        for i in range(n-k+1):
-            answer = min(answer, blocks[i:i+k].count('W'))
-            if answer == 0:
-                return 0
+        w_cnt = 0
+
+        for r in range(n):
+            if blocks[r] == 'W':
+                w_cnt += 1
+            
+            if r - l + 1 == k:
+                answer = min(answer, w_cnt)
+
+                if blocks[l] == 'W':
+                    w_cnt -= 1
+
+                l+=1        
         
         return answer
