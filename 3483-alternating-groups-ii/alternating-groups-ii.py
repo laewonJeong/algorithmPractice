@@ -1,11 +1,10 @@
 class Solution:
     def numberOfAlternatingGroups(self, colors: List[int], k: int) -> int:
-        colors += colors[:k-1]
         n = len(colors)
         answer = 0
 
         cnt = 1
-        for i in range(1, n):
+        for i in range(-k+1, n-1):
             if colors[i] == colors[i-1]:
                 cnt = 1
             else:
