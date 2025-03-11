@@ -4,13 +4,21 @@ class Solution:
         n = len(s)
         left = 0
         answer = 0
+        cnt = 0
 
         for right in range(n):
             abc[s[right]] += 1
-
-            while 0 not in abc.values():
-                answer += n - right
-                abc[s[left]] -= 1
-                left += 1
+            if abc[s[right]] == 1:
+                cnt += 1
+            
+            if cnt == 3:
+                while True:
+                    answer += n - right
+                    abc[s[left]] -= 1
+                    if abc[s[left]] == 0:
+                        left+=1
+                        break
+                    left += 1
+                cnt -= 1
 
         return answer
