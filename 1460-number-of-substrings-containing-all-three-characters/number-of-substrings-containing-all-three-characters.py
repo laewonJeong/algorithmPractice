@@ -2,9 +2,7 @@ class Solution:
     def numberOfSubstrings(self, s: str) -> int:
         abc = {'a':0, 'b':0, 'c':0}
         n = len(s)
-        left = 0
-        answer = 0
-        cnt = 0
+        left, cnt, answer = 0, 0, 0
 
         for right in range(n):
             abc[s[right]] += 1
