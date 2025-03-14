@@ -1,18 +1,18 @@
+def can_get(candies, k, mid):
+    cnt = 0
+
+    for candy in candies:
+        cnt += candy//mid
+
+    return cnt >= k
+
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
         sum_candies = sum(candies)
         if sum_candies < k:
             return 0
 
-        left, right = 1, min(max(candies), sum_candies//k + 1)
-
-        def can_get(candies, k, mid):
-            cnt = 0
-
-            for candy in candies:
-                cnt += candy//mid
-
-            return cnt >= k
+        left, right = 1, sum_candies//k + 1
 
         while left <= right:
             mid = (left + right) // 2
