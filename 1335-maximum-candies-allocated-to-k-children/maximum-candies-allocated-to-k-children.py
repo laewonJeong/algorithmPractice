@@ -1,9 +1,10 @@
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
-        if sum(candies) < k:
+        sum_candies = sum(candies)
+        if sum_candies < k:
             return 0
 
-        left, right = 1, max(candies)
+        left, right = 1, min(max(candies), sum_candies//k + 1)
 
         def can_get(candies, k, mid):
             cnt = 0
