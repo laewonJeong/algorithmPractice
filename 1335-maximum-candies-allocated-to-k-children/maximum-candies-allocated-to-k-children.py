@@ -9,8 +9,7 @@ class Solution:
             cnt = 0
 
             for candy in candies:
-                if candy >= mid:
-                    cnt += candy//mid
+                cnt += candy//mid
 
             return cnt >= k
 
@@ -22,5 +21,4 @@ class Solution:
             else:
                 right = mid - 1
 
-
-        return left-1
+        return right
