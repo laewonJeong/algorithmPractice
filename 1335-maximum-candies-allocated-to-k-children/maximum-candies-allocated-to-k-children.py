@@ -1,5 +1,8 @@
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
+        if sum(candies) < k:
+            return 0
+
         left, right = 1, max(candies)
 
         def can_get(candies, k, mid):
@@ -8,6 +11,7 @@ class Solution:
             for candy in candies:
                 if candy >= mid:
                     cnt += candy//mid
+
             return cnt >= k
 
         while left <= right:
@@ -19,4 +23,4 @@ class Solution:
                 right = mid - 1
 
 
-        return left-1 if left != 0 else left
+        return left-1
