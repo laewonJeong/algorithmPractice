@@ -1,6 +1,6 @@
 class Solution:
     def repairCars(self, ranks: List[int], cars: int) -> int:
-        left, right = 1, max(ranks) * cars ** 2
+        left, right = 1, min(ranks) * cars ** 2
 
         def can_minute(ranks, cars, mid):
             c = 0
