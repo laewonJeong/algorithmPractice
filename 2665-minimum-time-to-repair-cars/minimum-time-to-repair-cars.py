@@ -5,7 +5,7 @@ class Solution:
         def can_minute(ranks, cars, mid):
             c = 0
             for rank in ranks:
-                c += math.floor(math.sqrt(mid//rank))
+                c += int(math.sqrt(mid//rank))
             
             return c >= cars
 
