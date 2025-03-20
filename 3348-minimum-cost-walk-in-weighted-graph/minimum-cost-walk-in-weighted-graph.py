@@ -1,7 +1,7 @@
 class Solution:
     def minimumCost(self, n: int, edges: List[List[int]], query: List[List[int]]) -> List[int]:
         graph = [[] for _ in range(n)]
-        and_result = [1048575] * n
+        and_result = [-1] * n
 
         def find(parent, x):
             if parent[x] != x:
@@ -30,7 +30,7 @@ class Solution:
             root_x = find(parent, v1)
             root_y = find(parent, v2)
 
-            if root_x == root_y and and_result[root_x] != 1048575:
+            if root_x == root_y:
                 answer.append(and_result[root_x])
             else:
                 answer.append(-1)
