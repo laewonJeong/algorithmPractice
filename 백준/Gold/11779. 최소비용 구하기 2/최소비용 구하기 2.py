@@ -9,21 +9,9 @@ m = int(input())
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
     v1, v2, cost = map(int, input().split())
-
-    '''check1 = False
-    check2 = False
-    for i in range(len(graph[v1-1])):
-        if graph[v1-1][i][0] == v2-1:
-            check1 = True
-            if graph[v1-1][i][1] > cost:
-                graph[v1-1][i][1] = cost
-                check2 = True
-                break    
-    if not check1 and not check2:'''
     graph[v1-1].append([v2-1, cost])
 
 start, end = map(int, input().split())
-
 
 def dijkstra(start):
     distances = [[float('inf'), []] for _ in range(n)]
