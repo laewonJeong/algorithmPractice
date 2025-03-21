@@ -1,7 +1,7 @@
 class Solution:
     def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
         graph = defaultdict(list)
-        in_degree = defaultdict(int)
+        in_degree = {}
         supplies = set(supplies)
 
         for i, ingredient in enumerate(ingredients):
