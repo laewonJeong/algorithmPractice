@@ -1,31 +1,30 @@
 import heapq
-def dijkstra(graph, start, n):
-    d = [float('inf')] * n
-    d[start] = 0
-    hq = []
-    heapq.heappush(hq, [0, start])
+
+def dijkstra(start, graph):
+    distances = [float('inf')] * len(graph)
+    distances[start] = 0
+    q = []
+    heapq.heappush(q, (0, start))
     
-    while hq:
-        now_d, now_v = heapq.heappop(hq)
+    while q:
+        distance, now = heapq.heappop(q)
+        if distance > distances[now]:
+            continue
         
-        if now_d > d[now_v]: continue
-        
-        for next_v, w in graph[now_v]:
-            new_d = now_d + w
-            if d[next_v] > new_d:
-                d[next_v] = new_d
-                heapq.heappush(hq, [new_d, next_v])
-    
-    return d
+        for next, d in graph[now]:
+            new_d = distance + d
+            if new_d < distances[next]:
+                distances[next] = new_d
+                heapq.heappush(q, (new_d, next))
+    return distances
 
 def solution(n, edge):
-    answer = 0
     graph = [[] for _ in range(n)]
     
-    for v1, v2 in edge:
-        graph[v1-1].append([v2-1, 1])
-        graph[v2-1].append([v1-1, 1])
-
-    d = dijkstra(graph, 0, n)
+    for s, e in edge:
+        graph[s-1].append([e-1,1])
+        graph[e-1].append([s-1,1])
     
-    return d.count(max(d))
+    answer = dijkstra(0, graph)
+    
+    return answer.count(max(answer))
