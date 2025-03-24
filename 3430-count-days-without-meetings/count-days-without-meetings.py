@@ -7,11 +7,13 @@ class Solution:
 
         for i in range(n):
             if meetings[i][0] != before and meetings[i][0] <= meetings[before_idx][1]:
-                meetings[i] = [meetings[before_idx][0], max(meetings[i][1], meetings[before_idx][1])]
+                meetings[i][0] = meetings[before_idx][0]
+                meetings[i][1] = max(meetings[i][1], meetings[before_idx][1])
                 before = meetings[i][0]
                 before_idx = i
             elif meetings[i][0] == before:
-                meetings[i] = [meetings[before_idx][0], max(meetings[i][1], meetings[before_idx][1])]
+                meetings[i][0] = meetings[before_idx][0]
+                meetings[i][1] = max(meetings[i][1], meetings[before_idx][1])
             else:
                 before = meetings[i][0]
                 before_idx = i
