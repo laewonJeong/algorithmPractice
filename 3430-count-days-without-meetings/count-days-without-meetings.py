@@ -10,7 +10,7 @@ class Solution:
                 meetings[i][0] = prev_start
                 meetings[i][1] = max(current_end, prev_end)
             
-            if meetings[i-1][0] != meetings[i][0]:
-                days -= (meetings[i-1][1] - meetings[i-1][0] + 1)
+            if prev_start != meetings[i][0]:
+                days -= (prev_end - prev_start + 1)
     
         return days - (meetings[-1][1] - meetings[-1][0] + 1)
