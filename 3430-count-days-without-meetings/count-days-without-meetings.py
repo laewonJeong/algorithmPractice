@@ -15,14 +15,8 @@ class Solution:
             else:
                 before = meetings[i][0]
                 before_idx = i
-
-        
-        meetings.sort(key = lambda x:(x[0], -x[1]))
-        before = -1
-
-        for start, end in meetings:
-            if start != before:
-                days -= (end - start + 1)
-                before = start
+            
+            if i != 0 and meetings[i-1][0] != meetings[i][0]:
+                days -= (meetings[i-1][1] - meetings[i-1][0] + 1)
     
-        return days
+        return days -(meetings[-1][1] - meetings[-1][0] + 1)
