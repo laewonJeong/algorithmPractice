@@ -13,12 +13,10 @@ class Solution:
 
                 if max_end <= start:
                     result += 1
-                if max_end < end:
-                    max_end = end
-            
-            return result + 1 >= 3
+                    if result == 2:
+                        return True
+                max_end = max(max_end, end)
 
-        if can_cut(rectangles, 0):
-            return True
-        else:
-            return can_cut(rectangles, 1)
+            return result > 1
+
+        return can_cut(rectangles, 0) or can_cut(rectangles, 1)
