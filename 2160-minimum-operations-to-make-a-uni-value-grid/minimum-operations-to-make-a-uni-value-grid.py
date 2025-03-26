@@ -1,17 +1,22 @@
 class Solution:
     def minOperations(self, grid: List[List[int]], x: int) -> int:
-        new_grid = [num for row in grid for num in row]
-        n = len(new_grid)
+        check = -1
+        n = len(grid)
+        m = len(grid[0])
+        new_grid = []
 
-        check = new_grid[0] % x
-        for i in range(1, n):
-            if new_grid[i] % x != check:
-                return -1
-
+        for i in range(n):
+            for j in range(m):
+                new_grid.append(grid[i][j])
+                if check == -1:
+                    check = grid[i][j] % x
+                elif check != grid[i][j] % x:
+                    return -1
+        
         new_grid.sort()
 
         answer = 0
-        target = new_grid[n // 2]
+        target = new_grid[(n * m) // 2]
         for num in new_grid:
             answer += abs(target - num) // x
 
