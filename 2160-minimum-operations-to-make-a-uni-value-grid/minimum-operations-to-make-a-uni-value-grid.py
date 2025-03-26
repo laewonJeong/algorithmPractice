@@ -13,7 +13,6 @@ class Solution:
                 elif check != grid[i][j] % x:
                     return -1
         
-        grid.clear()
         new_grid.sort()
 
         target1 = new_grid[(n * m) // 2]
