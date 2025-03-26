@@ -15,11 +15,19 @@ class Solution:
         
         new_grid.sort()
 
-        target1 = new_grid[(n * m) // 2]
-        target2 = new_grid[(n * m) // 2 - 1]
-        answer = [0, 0]
-        for num in new_grid:
-            answer[0] += abs(target1 - num) // x
-            answer[1] += abs(target2 - num) // x
+        if (n * m) % 2 == 1:
+            answer = 0
+            target = new_grid[(n * m) // 2]
+            for num in new_grid:
+                answer += abs(target - num) // x
+
+            return answer
+        else:
+            target1 = new_grid[(n * m) // 2]
+            target2 = new_grid[(n * m) // 2 - 1]
+            answer = [0, 0]
+            for num in new_grid:
+                answer[0] += abs(target1 - num) // x
+                answer[1] += abs(target2 - num) // x
             
-        return min(answer)
+            return min(answer)
