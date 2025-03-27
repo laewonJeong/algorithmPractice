@@ -1,9 +1,7 @@
 class Solution:
     def minimumIndex(self, nums: List[int]) -> int:
         n = len(nums)
-        nums_counter = defaultdict(int)
-        for num in nums:
-            nums_counter[num] += 1
+        nums_counter = Counter(nums)
         cnt, max_num = max((v, k) for k, v in nums_counter.items())
 
         left_cnt = 0
