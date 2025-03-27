@@ -2,7 +2,7 @@ class Solution:
     def minimumIndex(self, nums: List[int]) -> int:
         n = len(nums)
         nums_counter = Counter(nums)
-        left_counter = Counter()
+        left_counter = defaultdict(int)
 
         for i, num in enumerate(nums):
             left_counter[num] += 1
