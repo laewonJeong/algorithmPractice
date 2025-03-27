@@ -8,11 +8,11 @@ class Solution:
         right_cnt = cnt
         for i, num in enumerate(nums):
             if num == max_num:
-                left_cnt += 1
-                right_cnt -= 1
-
-                if left_cnt * 2 > i + 1 and right_cnt * 2 > n-i-1:
+                if (left_cnt+1) * 2 > i + 1 and (right_cnt-1) * 2 > n-i-1:
                     return i
+                else:
+                    left_cnt += 1
+                    right_cnt -= 1
 
         return -1
             
