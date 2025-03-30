@@ -5,11 +5,13 @@ class Solution:
             last_idx[alpha] = i
         
         answer = []
-        start, end = 0, 0
+        end = 0
+        len_partition = 0
         for i, alpha in enumerate(s):
             end = max(end, last_idx[alpha])
+            len_partition += 1
             if i == end:
-                answer.append(end-start+1)
-                start = i + 1
+                answer.append(len_partition)
+                len_partition = 0
 
         return answer
