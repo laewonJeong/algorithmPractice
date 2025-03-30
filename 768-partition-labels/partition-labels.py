@@ -1,17 +1,25 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last_idx = {}
-        for i, alpha in enumerate(s):
-            last_idx[alpha] = i
+        counter_s = Counter(s)
+        n = len(s)
+        right = 0
+        check = []
+        idx = -1
         
-        answer = []
-        end = 0
-        len_partition = 0
-        for i, alpha in enumerate(s):
-            end = max(end, last_idx[alpha])
-            len_partition += 1
-            if i == end:
-                answer.append(len_partition)
-                len_partition = 0
+        for i in range(n):
+            left = s[i]
+            if not check or left not in check[idx]:
+                idx+=1
+                check.append([])
+            while counter_s[left] != 0 and right < n:
+                counter_s[s[right]] -= 1
+                check[idx].append(s[right])
+                right += 1
+        
+        answer = [0] * len(check)
 
+        for i in range(len(check)):
+            answer[i] = len(check[i])
+        
         return answer
+        
