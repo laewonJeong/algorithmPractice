@@ -1,8 +1,11 @@
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         n = len(nums)
-        for i in range(0, n, 3):
-            if n - i == len(set(nums[i:])):
-                return i // 3
+        nums_set = set()
+
+        for i in range(n-1, -1, -1):
+            if nums[i] in nums_set:
+                return i // 3 + 1            
+            nums_set.add(nums[i])
         
-        return (i+3)//3
+        return 0
