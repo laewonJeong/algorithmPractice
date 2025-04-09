@@ -3,13 +3,10 @@ class Solution:
         if min(nums) < k:
             return -1
         
+        nums = set(nums)
         answer = 0
-        seen = set()
         for num in nums:
-            if num == k:
-                continue
-            elif num not in seen:
+            if num > k:
                 answer += 1
-                seen.add(num)
         
         return answer
