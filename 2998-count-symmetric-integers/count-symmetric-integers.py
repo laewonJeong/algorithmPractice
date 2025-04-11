@@ -8,7 +8,8 @@ class Solution:
             if len_num % 2 != 0:
                 continue
             
-            if sum(map(int, num[:len_num // 2])) == sum(map(int, num[len_num // 2:])):
+            n = len_num // 2
+            if sum(map(int, num[:n])) == sum(map(int, num[n:])):
                 answer += 1 
 
         return answer
