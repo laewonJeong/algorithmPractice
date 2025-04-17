@@ -8,11 +8,8 @@ class Solution:
             dic[nums[i]].append(i)
         
         for v in dic.values():
-            v_len = len(v)
-
-            for i in range(v_len):
-                for j in range(i+1, v_len):
-                    if (v[i] * v[j]) % k == 0:
-                        answer += 1
+            for comb in tuple(combinations(v, 2)):
+                if comb[0] * comb[1] % k == 0:
+                    answer += 1
         
         return answer
