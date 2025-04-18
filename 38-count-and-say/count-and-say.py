@@ -13,10 +13,10 @@ class Solution:
                 if rle[j] == first:
                     cnt += 1
                 else:
-                    temp += str(cnt) + first
+                    temp += f'{cnt}{first}'
                     first = rle[j]
                     cnt = 1
-            temp += str(cnt) + first
+            temp += f'{cnt}{first}'
             rle = temp
             
         return rle
