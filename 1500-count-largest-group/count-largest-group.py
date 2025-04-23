@@ -9,12 +9,12 @@ def sum_of_digits(num):
 class Solution:
     def countLargestGroup(self, n: int) -> int:
         sum_dic = defaultdict(int)
-        max_cnt = 0
 
         for i in range(1, n+1):
             num = sum_of_digits(i)
             sum_dic[num] += 1
-            max_cnt = max(max_cnt, sum_dic[num])
+        
+        max_cnt = max(sum_dic.values())
         
         answer = 0
         for key in sum_dic:
