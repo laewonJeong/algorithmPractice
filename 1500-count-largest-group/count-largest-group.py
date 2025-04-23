@@ -1,10 +1,18 @@
+def sum_of_digits(num):
+    sum_num = 0
+    while num != 0:
+        sum_num += num % 10
+        num //= 10
+    
+    return sum_num
+
 class Solution:
     def countLargestGroup(self, n: int) -> int:
         sum_dic = defaultdict(int)
         max_cnt = 0
 
         for i in range(1, n+1):
-            num = sum(map(int, str(i)))
+            num = sum_of_digits(i)
             sum_dic[num] += 1
             max_cnt = max(max_cnt, sum_dic[num])
         
