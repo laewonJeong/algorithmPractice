@@ -2,13 +2,17 @@ class Solution:
     def countCompleteSubarrays(self, nums: List[int]) -> int:
         n = len(nums)
         distinct_cnt = len(set(nums))
-        answer = 0
+        answer, left = 0, 0
+        num_cnt = defaultdict(int)
 
-        for i in range(n):
-            temp = set()
-            for j in range(i, n):
-                temp.add(nums[j])
-                if len(temp) == distinct_cnt:
-                    answer += 1
+        for right in range(n):
+            num_cnt[nums[right]] += 1
+
+            while len(num_cnt) == distinct_cnt:
+                answer += n - right
+                num_cnt[nums[left]] -= 1
+                if num_cnt[nums[left]] == 0:
+                    del num_cnt[nums[left]]
+                left += 1
         
         return answer
