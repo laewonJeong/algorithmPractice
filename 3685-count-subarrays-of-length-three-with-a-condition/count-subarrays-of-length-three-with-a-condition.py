@@ -4,8 +4,7 @@ class Solution:
         answer = 0
 
         for i in range(n-2):
-            s = nums[i:i+3]
-            if s[0] + s[2] == s[1]/2:
+            if nums[i] + nums[i+2] == nums[i+1]/2:
                 answer+=1
         
         return answer
