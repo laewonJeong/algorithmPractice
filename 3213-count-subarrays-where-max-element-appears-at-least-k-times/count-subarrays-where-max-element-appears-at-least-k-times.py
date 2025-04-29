@@ -2,19 +2,18 @@ class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
         max_num = max(nums)
         n = len(nums)
-        count = 0
-        left = 0
-        answer = 0
+        count, right, answer = 0, 0, 0
 
-        for right in range(n):
-            if nums[right] == max_num:
-                count += 1
-
-            while count >= k:
-                if nums[left] == max_num:
-                    count-=1
-                left += 1
+        for left in range(n):
+            while right < n and count < k:
+                if nums[right] == max_num:
+                    count += 1
+                right += 1
             
-            answer += left
+            if count >= k:
+                answer += n-right+1
+            
+            if nums[left] == max_num:
+                count -= 1
 
         return answer
