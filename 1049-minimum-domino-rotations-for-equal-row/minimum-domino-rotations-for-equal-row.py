@@ -9,9 +9,10 @@ class Solution:
             else:
                 dice[tops[i]] += 1
                 dice[bottoms[i]] += 1
-        
-        if max(dice) != n:
-            return -1
+
+            if dice[tops[i]] != i+1 and dice[bottoms[i]] != i+1:
+                return -1
+
         
         answer = 0
         for i in range(1, 7):
