@@ -4,20 +4,19 @@ class Solution:
         dice = [0] * 7
         
         for i in range(n):
-            if tops[i] == bottoms[i]:
-                dice[tops[i]] += 1
-            else:
-                dice[tops[i]] += 1
+            if tops[i] != bottoms[i]:
                 dice[bottoms[i]] += 1
+            dice[tops[i]] += 1
         
-        if max(dice) != n:
+        if dice[tops[0]] == n:
+            target = tops[0]
+        elif dice[bottoms[0]] == n:
+            target = bottoms[0]
+        else:
             return -1
-        
-        answer = 0
-        for i in range(1, 7):
-            if dice[i] == n:
-                x = tops.count(i)
-                y = bottoms.count(i)
-                answer = min(n-x, n-y)
+
+        x = tops.count(target)
+        y = bottoms.count(target)
+        answer = min(n-x, n-y)
 
         return answer
