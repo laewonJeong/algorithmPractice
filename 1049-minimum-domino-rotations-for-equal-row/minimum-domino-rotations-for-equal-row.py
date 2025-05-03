@@ -2,16 +2,16 @@ class Solution:
     def minDominoRotations(self, tops: List[int], bottoms: List[int]) -> int:
         n = len(tops)
         dice = [0] * 7
-        
+        available_num = -1
+
         for i in range(n):
-            if tops[i] == bottoms[i]:
-                dice[tops[i]] += 1
-            else:
-                dice[tops[i]] += 1
+            if tops[i] != bottoms[i]:
                 dice[bottoms[i]] += 1
+            dice[tops[i]] += 1
 
             if dice[tops[i]] != i+1 and dice[bottoms[i]] != i+1:
                 return -1
+            
 
         
         answer = 0
