@@ -8,13 +8,12 @@ class Solution:
                 dice[bottoms[i]] += 1
             dice[tops[i]] += 1
         
-        if max(dice) != n:
-            return -1
-        
         if dice[tops[0]] == n:
             target = tops[0]
-        else:
+        elif dice[bottoms[0]] == n:
             target = bottoms[0]
+        else:
+            return -1
 
         x = tops.count(target)
         y = bottoms.count(target)
