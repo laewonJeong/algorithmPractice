@@ -9,7 +9,8 @@ class Solution:
         
         answer = 0
 
-        for cnt in dic.values():
+        for key in dic:
+            cnt = dic[key]
             if cnt > 1:
                 answer += cnt * (cnt-1) // 2
         
