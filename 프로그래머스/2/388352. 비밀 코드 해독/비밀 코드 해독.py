@@ -2,9 +2,7 @@ from itertools import combinations
 
 def check(q, ans, comb):
     for i in range(len(q)):
-        if len(comb & set(q[i])) == ans[i]:
-            continue
-        else:
+        if len(comb & set(q[i])) != ans[i]:
             return False
     
     return True
