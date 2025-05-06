@@ -1,9 +1,9 @@
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        answer = []
+        answer = [0] * n
 
         for i in range(n):
-            answer.append(nums[nums[i]])
+            answer[i] = nums[nums[i]]
         
         return answer
