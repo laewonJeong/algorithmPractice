@@ -7,8 +7,7 @@ class Solution:
 
         q = [(0,0,0,1)]
         heapq.heapify(q)
-        visited = set()
-        visited.add((0,0))
+        visited = [[False]*m for _ in range(n)]
 
         while q:
             time, x, y, second = heapq.heappop(q)
@@ -20,8 +19,8 @@ class Solution:
                 nx = x+move[0]
                 ny = y+move[1]
 
-                if 0<=nx<n and 0<=ny<m and (nx, ny) not in visited:
-                    visited.add((nx, ny))
+                if 0<=nx<n and 0<=ny<m and not visited[nx][ny]:
+                    visited[nx][ny] = True
                     if moveTime[nx][ny] > time:
                         heapq.heappush(q, (moveTime[nx][ny] + second,nx,ny, second % 2 + 1))
                     else:
