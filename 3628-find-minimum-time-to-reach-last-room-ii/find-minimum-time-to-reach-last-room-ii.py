@@ -22,8 +22,7 @@ class Solution:
 
                 if 0<=nx<n and 0<=ny<m and (nx, ny) not in visited:
                     visited.add((nx, ny))
-                    temp = 1 if second == 2 else 2
                     if moveTime[nx][ny] > time:
-                        heapq.heappush(q, (moveTime[nx][ny] + second,nx,ny, temp))
+                        heapq.heappush(q, (moveTime[nx][ny] + second,nx,ny, second % 2 + 1))
                     else:
-                        heapq.heappush(q, (time + second,nx,ny, temp))
+                        heapq.heappush(q, (time + second,nx,ny, second % 2 + 1))
