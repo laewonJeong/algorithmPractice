@@ -7,15 +7,15 @@ class Solution:
             c = even_num % 10
             b = even_num // 10 % 10
             a = even_num // 100
-            digit_counter[a] -= 1
-            digit_counter[b] -= 1
-            digit_counter[c] -= 1
-
-            if all(digit_counter[i] >= 0 for i in [a,b,c]):
-                answer.append(even_num)
+            list_even_num = [a, b, c]
             
-            digit_counter[a] += 1
-            digit_counter[b] += 1
-            digit_counter[c] += 1
+            check = True
+            for digit in list_even_num:
+                if list_even_num.count(digit) > digit_counter[digit]:
+                    check = False
+                    break
+
+            if check:
+                answer.append(even_num)
 
         return answer
