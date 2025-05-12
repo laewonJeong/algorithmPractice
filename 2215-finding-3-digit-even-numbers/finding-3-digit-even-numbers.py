@@ -1,7 +1,9 @@
 class Solution:
     def findEvenNumbers(self, digits: List[int]) -> List[int]:
         answer = []
-        digit_counter = Counter(digits)
+        digit_counter = defaultdict(int)
+        for digit in digits:
+            digit_counter[digit] += 1
 
         for even_num in range(100, 999, 2):
             c = even_num % 10
