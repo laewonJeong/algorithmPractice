@@ -2,7 +2,10 @@ class Solution:
     def findEvenNumbers(self, digits: List[int]) -> List[int]:
         answer = []
         for even_num in range(100, 999, 2):
-            list_even_num = list(map(int, str(even_num)))
+            c = even_num % 10
+            b = even_num // 10 % 10
+            a = even_num // 100
+            list_even_num =[a, b, c]
 
             check = True
             for digit in list_even_num:
