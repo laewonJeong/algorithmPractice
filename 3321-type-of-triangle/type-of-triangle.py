@@ -1,8 +1,7 @@
 class Solution:
     def triangleType(self, nums: List[int]) -> str:
-        nums.sort()
-
-        if nums[0] + nums[1] <= nums[2]:
+        a, b, c = nums
+        if a + b <= c or a + c <= b or c + b <= a:
             return "none"
         
         nums = set(nums)
