@@ -37,10 +37,9 @@ class Solution:
         answer = -1
 
         for i in range(n):
-            if distances1[i] != float('inf') and distances2[i] != float('inf'):
-                max_dis = max(distances1[i], distances2[i]) 
-                if max_dis < check:
-                    check = max_dis
-                    answer = i
+            max_dis = max(distances1[i], distances2[i]) 
+            if max_dis < check:
+                check = max_dis
+                answer = i
         
         return answer
