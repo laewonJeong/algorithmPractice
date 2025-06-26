@@ -4,6 +4,5 @@ class Solution:
             digits[-1] += 1
             return digits
         else:
-            digit = int(''.join(str(i) for i in digits))
-            digit += 1
+            digit = int(''.join(str(i) for i in digits)) + 1
             return list(map(int, str(digit)))
