@@ -1,6 +1,6 @@
 class Solution:
     def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
-        nums = [[i, num] for i, num in enumerate(nums)]
+        nums = [(i, nums[i]) for i in range(len(nums))]
 
         nums.sort(key = lambda x:-x[1])
         nums = nums[:k]
