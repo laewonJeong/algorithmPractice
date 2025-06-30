@@ -7,7 +7,7 @@ class Solution:
         
         answer = 0
         for num in nums:
-            if count[num+1] != 0:
+            if num + 1 in count:
                 answer = max(answer, count[num] + count[num+1])
         
         return answer
