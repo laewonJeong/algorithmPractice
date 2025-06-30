@@ -9,9 +9,9 @@ public:
 
         int answer = 0;
 
-        for(int num:nums){
-            if(cnt.count(num+1)){
-                answer = max(answer, cnt[num] + cnt[num+1]);
+        for(auto& [key, value]:cnt ){
+            if(cnt.count(key+1)){
+                answer = max(answer, value + cnt[key+1]);
             }
         }
 
