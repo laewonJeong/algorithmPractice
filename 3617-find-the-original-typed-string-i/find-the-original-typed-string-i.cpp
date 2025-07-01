@@ -6,10 +6,10 @@ public:
 
         for(int i = 0; i< n; i++){
             if(word[i] == word[i+1]){
-                answer += 1;
+                answer++;
             }
         }
 
-        return answer + 1;
+        return ++answer;
     }
 };
