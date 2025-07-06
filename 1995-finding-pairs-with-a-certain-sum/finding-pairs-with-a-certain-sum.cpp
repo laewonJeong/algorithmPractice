@@ -22,7 +22,8 @@ public:
         int result = 0;
 
         for(auto& num:arr1){
-            result += nums2_cnt[tot-num];
+            if(nums2_cnt.count(tot-num))
+                result += nums2_cnt[tot-num];
         }
         return result;
     }
