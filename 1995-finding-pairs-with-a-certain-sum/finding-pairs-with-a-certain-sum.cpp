@@ -14,8 +14,8 @@ public:
     
     void add(int index, int val) {
         nums2_cnt[arr2[index]]--;
-        nums2_cnt[arr2[index]+val]++;
         arr2[index] += val;
+        nums2_cnt[arr2[index]]++;
     }
     
     int count(int tot) {
