@@ -12,11 +12,9 @@ class Solution {
 public:
     int getDecimalValue(ListNode* head) {
         vector<int> bin;
-        while(1){
+        while(head){
             bin.push_back(head->val);
             head= head->next;
-            if(head == NULL)
-                break;
         }
 
         int answer = 0;
