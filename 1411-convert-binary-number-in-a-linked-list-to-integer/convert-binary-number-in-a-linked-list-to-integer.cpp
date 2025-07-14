@@ -11,19 +11,12 @@
 class Solution {
 public:
     int getDecimalValue(ListNode* head) {
-        vector<int> bin;
+        string bin;
         while(head){
-            bin.push_back(head->val);
+            bin += to_string(head->val);
             head= head->next;
         }
 
-        int answer = 0;
-        int two = 1;
-        for(int i = bin.size()-1; i>=0; i--){
-            answer += bin[i] * two;
-            two*=2;
-        }
-
-        return answer;
+        return stoi(bin, nullptr, 2);
     }
 };
