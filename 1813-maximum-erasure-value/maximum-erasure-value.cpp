@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) {
-        unordered_map<int, bool> unique;
+        vector<bool> unique(10001, false);
         int n = nums.size();
         int sub_sum = 0;
         int right = 0;
