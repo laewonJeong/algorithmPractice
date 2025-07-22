@@ -1,21 +1,15 @@
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
-        unique = defaultdict(bool)
-        answer = 0
-        sub_sum = 0
-        right = 0
-        n = len(nums)
+        seen = set()
+        answer = sub_sum = left = 0
 
-        temp = []
-        for left in range(n):
-            while right < n and not unique[nums[right]]:
-                sub_sum += nums[right]
-                unique[nums[right]] = True
-                right+=1
-            
+        for right in range(len(nums)):
+            while nums[right] in seen:
+                seen.remove(nums[left])
+                sub_sum -= nums[left]
+                left += 1
+            seen.add(nums[right])
+            sub_sum += nums[right]
             answer = max(answer, sub_sum)
-            unique[nums[left]] = False
-            sub_sum -= nums[left]
 
         return answer
-
