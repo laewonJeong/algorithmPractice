@@ -1,7 +1,9 @@
+answer = 0
+
 def gain(ch1, ch2, s, x):
+    global answer
     before = []
     n = len(s)
-    answer = 0
 
     for i in range(n):
         ch = s[i]
@@ -12,21 +14,18 @@ def gain(ch1, ch2, s, x):
         else:
             before.append(ch)
     
-    return answer, before
+    return before
 
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
+        global answer
         answer = 0
-
+        
         if y > x:
-            plus, s = gain('b', 'a', s, y)
-            answer += plus
-            plus, _ = gain('a', 'b', s, x)
-            answer += plus
+            s = gain('b', 'a', s, y)
+            _ = gain('a', 'b', s, x)
         else:
-            plus, s = gain('a', 'b', s, x)
-            answer += plus
-            plus, _ = gain('b', 'a', s, y)
-            answer += plus
-
+            s = gain('a', 'b', s, x)
+            _ = gain('b', 'a', s, y)
+            
         return answer
