@@ -12,7 +12,7 @@ def gain(ch1, ch2, s, x):
         else:
             before.append(ch)
     
-    return answer, ''.join(before)
+    return answer, before
 
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
@@ -28,5 +28,5 @@ class Solution:
             answer += plus
             plus, _ = gain('b', 'a', s, y)
             answer += plus
-            
+
         return answer
