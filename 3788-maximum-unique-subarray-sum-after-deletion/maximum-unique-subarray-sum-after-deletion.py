@@ -1,14 +1,13 @@
 class Solution:
     def maxSum(self, nums: List[int]) -> int:
-
-        if min(nums) < 0 and max(nums) < 0:
+        if max(nums) < 0:
             return max(nums)
 
-        new_nums = []
-
+        nums = set(list(nums))
+        answer = 0
         for num in nums:
-            if num not in new_nums and num > 0:
-                new_nums.append(num)
+            if num > 0:
+                answer += num
         
-        return sum(new_nums)
+        return answer
                 
