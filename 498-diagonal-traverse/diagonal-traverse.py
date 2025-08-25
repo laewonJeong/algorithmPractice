@@ -12,7 +12,9 @@ class Solution:
 
         answer = []
         for i in range(len(temp)):
-            for num in temp[i][::i%2*-2+1]:
+            if i % 2 != 0:
+                temp[i] = temp[i][::-1]
+            for num in temp[i]:
                 answer.append(num)
 
         return answer
