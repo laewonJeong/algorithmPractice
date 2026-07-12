@@ -4,7 +4,4 @@ class Solution:
         for i, ele in enumerate(sorted(list(set(arr)))):
             idx[ele] = i + 1
         
-        for i in range(len(arr)):
-            arr[i] = idx[arr[i]]
-
-        return arr
+        return [idx[arr[i]] for i in range(len(arr))]
