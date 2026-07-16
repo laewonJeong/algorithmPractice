@@ -1,8 +1,7 @@
 class Solution:
     def gcdSum(self, nums: list[int]) -> int:
         n          = len(nums)
-        mx         = [0] * n
-        mx[0]      = nums[0]
+        mx         = [nums[0]] * n
         prefix_gcd = [0] * n
 
         for i in range(1, n):
