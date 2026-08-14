@@ -1,12 +1,10 @@
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        n = len(s)
         idx = 0
-        dic = defaultdict(int)
-        dic[s[idx]] = 1
         answer = 0
 
-        for i in range(1, n):
+        dic = defaultdict(int)
+        for i in range(len(s)):
             dic[s[i]] += 1
             if dic[s[i]] > 2:
                 while dic[s[i]] > 2:
